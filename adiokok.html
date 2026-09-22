@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>עדי רחימי | עובדת סוציאלית קלינית ומטפלת בטראומה (DBT)</title>
+    <meta name="description" content="עדי רחימי - עובדת סוציאלית ומטפלת מוסמכת בטראומה (PTSD, CPTSD) בגישת DBT. טיפול רגיש, מקצועי ובגובה העיניים בקליניקה בנס ציונה ובאונליין.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts: Assistant & Heebo for modern Hebrew typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6b8e7b', // Sage Green (ירוק מרווה)
+                        'primary-dark': '#557262',
+                        secondary: '#d9d2c5', // Warm Beige (בז' חמים)
+                        accent: '#7f91a3', // Smoky Blue (כחול מעושן)
+                        dark: '#333333', // Soft Dark Text
+                        light: '#faf9f7', // Off-white background
+                        white: '#ffffff',
+                    },
+                    fontFamily: {
+                        sans: ['Heebo', 'Assistant', 'sans-serif'],
+                        heading: ['Assistant', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'soft': '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
+                        'card': '0 10px 30px -5px rgba(107, 142, 123, 0.1)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #faf9f7;
+            color: #333333;
+            scroll-behavior: smooth;
+        }
+
+        /* Subtle Fade In Animation */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25d366;
+            color: white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+            z-index: 50;
+            transition: transform 0.3s ease;
+        }
+        
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            color: white;
+        }
+
+        /* Glassmorphism for Navbar */
+        .glass-nav {
+            background: rgba(250, 249, 247, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(217, 210, 197, 0.5);
+        }
+
+        /* Soft Gradient Backgrounds */
+        .bg-gradient-soft {
+            background: linear-gradient(135deg, #faf9f7 0%, #f0efe9 100%);
+        }
+        
+        .hero-pattern {
+            background-color: #faf9f7;
+            background-image: radial-gradient(#d9d2c5 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #faf9f7;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #d9d2c5;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #6b8e7b;
+        }
+        
+        .acc-icon {
+            transition: transform 0.3s ease;
+        }
+        details[open] .acc-icon {
+            transform: rotate(180deg);
+        }
+        
+        details > summary {
+            list-style: none;
+        }
+        details > summary::-webkit-details-marker {
+            display: none;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased text-dark">
+
+    <header class="fixed w-full top-0 z-40 glass-nav transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex-shrink-0">
+                    <a href="#" class="font-heading font-bold text-2xl text-primary tracking-wide">
+                        עדי רחימי <span class="text-sm font-normal text-accent block -mt-1">עו"ס, מטפלת בטראומה</span>
+                    </a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <nav class="hidden md:flex space-x-8 space-x-reverse">
+                    <a href="#about" class="text-dark hover:text-primary transition-colors font-medium">אודות</a>
+                    <a href="#expertise" class="text-dark hover:text-primary transition-colors font-medium">תחומי טיפול</a>
+                    <a href="#process" class="text-dark hover:text-primary transition-colors font-medium">התהליך</a>
+                    <a href="#faq" class="text-dark hover:text-primary transition-colors font-medium">שאלות נפוצות</a>
+                </nav>
+
+                <div class="hidden md:flex items-center space-x-4 space-x-reverse">
+                    <a href="#contact" class="bg-primary hover:bg-primary-dark text-white px-6 py-2.5 rounded-full font-medium transition-colors shadow-soft">
+                        לתיאום פגישה
+                    </a>
+                    <a href="tel:0524274666" class="text-primary hover:text-primary-dark flex items-center gap-2 font-medium">
+                        <i class="fas fa-phone-alt"></i> 052-427-4666
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-dark hover:text-primary focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-light border-t border-secondary absolute w-full">
+            <div class="px-4 pt-2 pb-6 space-y-1 shadow-soft">
+                <a href="#about" class="block px-3 py-3 text-base font-medium text-dark hover:bg-secondary rounded-md">אודות</a>
+                <a href="#expertise" class="block px-3 py-3 text-base font-medium text-dark hover:bg-secondary rounded-md">תחומי טיפול</a>
+                <a href="#process" class="block px-3 py-3 text-base font-medium text-dark hover:bg-secondary rounded-md">התהליך</a>
+                <a href="#faq" class="block px-3 py-3 text-base font-medium text-dark hover:bg-secondary rounded-md">שאלות נפוצות</a>
+                <div class="mt-4 pt-4 border-t border-secondary flex flex-col gap-3">
+                    <a href="#contact" class="bg-primary text-white block text-center px-6 py-3 rounded-full font-medium">לתיאום פגישה</a>
+                    <a href="tel:0524274666" class="border border-primary text-primary block text-center px-6 py-3 rounded-full font-medium">חיוג ישיר</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="relative pt-32 pb-20 lg:pt-40 lg:pb-28 hero-pattern overflow-hidden">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+                    
+                    <!-- Text Content -->
+                    <div class="w-full lg:w-1/2 text-center lg:text-right fade-in-up">
+                        <span class="inline-block py-1 px-3 rounded-full bg-secondary text-dark text-sm font-medium mb-6">
+                            מרחב בטוח לריפוי וצמיחה
+                        </span>
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-heading font-bold text-dark leading-tight mb-6">
+                            למצוא את הדרך <br>
+                            <span class="text-primary">חזרה לעצמך</span>
+                        </h1>
+                        <p class="text-lg sm:text-xl text-gray-600 mb-8 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                            מקום מכיל, מקצועי ובגובה העיניים להתמודדות עם משברי חיים, חרדה וטראומה. יחד ניצור מרחב שבו אפשר לנשום, לעבד ולמצוא כוחות מחודשים.
+                        </p>
+                        
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-10">
+                            <a href="#contact" class="bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-full font-medium transition-all shadow-card hover:shadow-lg text-lg flex items-center justify-center gap-2">
+                                לתיאום שיחת התייעצות <i class="fas fa-arrow-left text-sm"></i>
+                            </a>
+                            <a href="#about" class="bg-white border-2 border-secondary text-dark hover:border-primary hover:text-primary px-8 py-4 rounded-full font-medium transition-all text-lg flex items-center justify-center">
+                                קצת עליי
+                            </a>
+                        </div>
+
+                        <!-- Trust Badges -->
+                        <div class="flex flex-wrap justify-center lg:justify-start gap-6 pt-6 border-t border-secondary border-opacity-50">
+                            <div class="flex items-center gap-2">
+                                <div class="w-10 h-10 rounded-full bg-secondary bg-opacity-50 flex items-center justify-center text-primary">
+                                    <i class="fas fa-certificate"></i>
+                                </div>
+                                <span class="text-sm font-medium">עו"ס ומטפלת<br>מוסמכת</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <div class="w-10 h-10 rounded-full bg-secondary bg-opacity-50 flex items-center justify-center text-primary">
+                                    <i class="fas fa-brain"></i>
+                                </div>
+                                <span class="text-sm font-medium">התמחות בטיפול<br>DBT וטראומה</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <div class="w-10 h-10 rounded-full bg-secondary bg-opacity-50 flex items-center justify-center text-primary">
+                                    <i class="fas fa-history"></i>
+                                </div>
+                                <span class="text-sm font-medium">מעל עשור של<br>ניסיון קליני</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Image -->
+                    <div class="w-full lg:w-1/2 relative fade-in-up" style="transition-delay: 0.2s;">
+                        <div class="relative rounded-3xl overflow-hidden shadow-card aspect-[4/5] max-w-md mx-auto lg:max-w-full">
+                            <!-- Placeholder for Professional Photo -->
+                            <img src="תמונה 3.jpeg" alt="עדי רחימי - מטפלת בטראומה" class="object-cover w-full h-full">
+                            
+                            <!-- Overlay subtle gradient -->
+                            <div class="absolute inset-0 bg-gradient-to-t from-dark/40 to-transparent"></div>
+                            
+                            <!-- Badge -->
+                            <div class="absolute bottom-6 right-6 bg-white/90 backdrop-blur-sm p-4 rounded-2xl shadow-lg flex items-center gap-3">
+                                <div class="bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center text-xl">
+                                    <i class="fas fa-heart"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-dark m-0">מנהלת "בית אלה"</p>
+                                    <p class="text-xs text-gray-500 m-0">מסגרת טיפולית לטראומה</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Decorative shapes -->
+                        <div class="absolute -top-6 -right-6 w-24 h-24 bg-accent rounded-full opacity-20 -z-10 blur-xl"></div>
+                        <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-primary rounded-full opacity-20 -z-10 blur-2xl"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-3xl mx-auto text-center fade-in-up">
+                    <h2 class="text-3xl md:text-4xl font-heading font-bold text-dark mb-6">אולי גם אתם מרגישים כך...</h2>
+                    <p class="text-lg text-gray-600 mb-12">
+                        לעיתים, החוויות שעברנו ממשיכות ללוות אותנו בדרכים לא צפויות. זה טבעי להרגיש מוצפים, וחשוב לדעת שאתם לא לבד. האם חלק מהתחושות האלו מוכרות לכם?
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto fade-in-up">
+                    <div class="bg-light p-6 rounded-2xl text-center hover:shadow-md transition-shadow">
+                        <div class="text-accent text-3xl mb-3"><i class="fas fa-wind"></i></div>
+                        <h3 class="font-medium text-dark">תחושת חרדה<br>והצפה</h3>
+                    </div>
+                    <div class="bg-light p-6 rounded-2xl text-center hover:shadow-md transition-shadow">
+                        <div class="text-accent text-3xl mb-3"><i class="fas fa-eye"></i></div>
+                        <h3 class="font-medium text-dark">דריכות ומתח<br>מתמיד</h3>
+                    </div>
+                    <div class="bg-light p-6 rounded-2xl text-center hover:shadow-md transition-shadow">
+                        <div class="text-accent text-3xl mb-3"><i class="fas fa-bed"></i></div>
+                        <h3 class="font-medium text-dark">קשיים בשינה<br>וסיוטים</h3>
+                    </div>
+                    <div class="bg-light p-6 rounded-2xl text-center hover:shadow-md transition-shadow">
+                        <div class="text-accent text-3xl mb-3"><i class="fas fa-images"></i></div>
+                        <h3 class="font-medium text-dark">זיכרונות חודרניים<br>(פלאשבקים)</h3>
+                    </div>
+                    <div class="bg-light p-6 rounded-2xl text-center hover:shadow-md transition-shadow">
+                        <div class="text-accent text-3xl mb-3"><i class="fas fa-users-slash"></i></div>
+                        <h3 class="font-medium text-dark">קושי ביצירת<br>קשרים קרובים</h3>
+                    </div>
+                    <div class="bg-light p-6 rounded-2xl text-center hover:shadow-md transition-shadow">
+                        <div class="text-accent text-3xl mb-3"><i class="fas fa-brain"></i></div>
+                        <h3 class="font-medium text-dark">מחשבות טורדניות<br>שלא מרפות</h3>
+                    </div>
+                    <div class="bg-light p-6 rounded-2xl text-center hover:shadow-md transition-shadow">
+                        <div class="text-accent text-3xl mb-3"><i class="fas fa-temperature-half"></i></div>
+                        <h3 class="font-medium text-dark">קושי בוויסות<br>רגשות </h3>
+                    </div>
+                    <div class="bg-light p-6 rounded-2xl text-center hover:shadow-md transition-shadow">
+                        <div class="text-accent text-3xl mb-3"><i class="fas fa-battery-quarter"></i></div>
+                        <h3 class="font-medium text-dark">תחושת ריקנות<br>ואובדן כיוון</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 bg-primary text-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-4xl mx-auto text-center fade-in-up">
+                    <i class="fas fa-quote-right text-4xl opacity-50 mb-6"></i>
+                    <h2 class="text-2xl md:text-3xl font-heading font-light leading-relaxed">
+                        הטראומה אמנם מותירה חותם, אך היא אינה מגדירה את כל מי שאנחנו. עם ליווי מקצועי, הכוונה נכונה ומרחב בטוח, אפשר ללמוד לווסת את הכאב, למצוא כוחות מחודשים, ולסלול דרך לחיים מלאים ורגועים יותר. יש מקום לתקווה ויש מקום לשינוי.
+                    </h2>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="py-24 bg-light relative">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row items-center gap-16">
+                    <div class="w-full md:w-5/12 fade-in-up">
+                        <div class="relative">
+                            <img src="adirr.jpeg" alt="קליניקה עדי רחימי" class="rounded-3xl shadow-card relative z-10 w-full object-cover">
+                            <div class="absolute -top-4 -right-4 w-full h-full border-2 border-primary rounded-3xl -z-0"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="w-full md:w-7/12 fade-in-up">
+                        <h2 class="text-3xl md:text-4xl font-heading font-bold text-dark mb-4">נעים מאוד, אני עדי</h2>
+                        <h3 class="text-xl text-primary font-medium mb-6">עובדת סוציאלית ומטפלת מוסמכת בטראומה</h3>
+                        
+                        <div class="space-y-4 text-gray-700 text-lg leading-relaxed">
+                            <p>
+                                אני מלווה נשים, גברים ובני נוער במסע ההתמודדות וההחלמה מטראומה ומשברי חיים, כבר למעלה מעשור. הגישה הטיפולית שלי משלבת ידע קליני מעמיק, עם כלים מעולם ה DBT, יחד עם אנושיות, הקשבה נקייה משיפוטיות והבנה שהאדם מולי הוא הרבה מעבר לכאב שהוא נושא.
+                            </p>
+                            <p>
+                                בארבע השנים האחרונות אני מנהלת את "בית אלה" – מסגרת טיפולית ייחודית המתמחה בטיפול בנשים המתמודדות עם פוסט-טראומה מורכבת. התפקיד הזה חידד אצלי את ההבנה עד כמה סביבה בטוחה וקשר מיטיב הם קריטיים לתהליך הריפוי.
+                            </p>
+                            <p>
+                                מעבר לטיפול הפרטני והקבוצתי, אני עוסקת גם בהכשרת צוותי טיפול ואנשי מקצוע בתחום השיקום והטראומה. אני מאמינה גדולה ביכולת של הנפש להשתקם, למצוא עוגנים חדשים, ולחזור להרגיש. 
+                            </p>
+                        </div>
+                        
+                        <div class="mt-8 pt-8 border-t border-secondary border-opacity-50 grid grid-cols-2 gap-4">
+                            <div class="flex items-start gap-3">
+                                <i class="fas fa-check text-primary mt-1"></i>
+                                <div>
+                                    <h4 class="font-bold text-dark">גישת DBT</h4>
+                                    <p class="text-sm text-gray-600">הקניית כלים לוויסות רגשי ויצירת חיים ששווה לחיות.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <i class="fas fa-check text-primary mt-1"></i>
+                                <div>
+                                    <h4 class="font-bold text-dark">מרחב בטוח</h4>
+                                    <p class="text-sm text-gray-600">קליניקה נעימה, מכילה ודיסקרטית בנס ציונה (וגם אונליין).</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="expertise" class="py-24 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-16 fade-in-up">
+                    <h2 class="text-3xl md:text-4xl font-heading font-bold text-dark mb-4">תחומי התמחות</h2>
+                    <p class="text-lg text-gray-600">
+                        טיפול מותאם אישית הנותן מענה למגוון התמודדויות רגשיות, תוך שימוש בכלים מבוססי מחקר וניסיון קליני עשיר.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Card 1 -->
+                    <div class="bg-light p-8 rounded-3xl shadow-soft hover:shadow-card transition-all group fade-in-up border border-transparent hover:border-secondary">
+                        <div class="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-primary text-2xl mb-6 shadow-sm group-hover:bg-primary group-hover:text-white transition-colors">
+                            <i class="fas fa-ribbon"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-dark mb-3">פוסט-טראומה (PTSD)</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            עיבוד חוויות קשות, הפחתת פלאשבקים וסיוטים, ולמידה מחדש של תחושת ביטחון בעולם ובגוף.
+                        </p>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="bg-light p-8 rounded-3xl shadow-soft hover:shadow-card transition-all group fade-in-up border border-transparent hover:border-secondary" style="transition-delay: 0.1s;">
+                        <div class="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-primary text-2xl mb-6 shadow-sm group-hover:bg-primary group-hover:text-white transition-colors">
+                            <i class="fas fa-layer-group"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-dark mb-3">פוסט-טראומה מורכבת (CPTSD)</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            טיפול מעמיק בפגיעות מתמשכות, קשיי התקשרות, ויסות רגשי ושיקום תחושת העצמי שנפגעה.
+                        </p>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="bg-light p-8 rounded-3xl shadow-soft hover:shadow-card transition-all group fade-in-up border border-transparent hover:border-secondary" style="transition-delay: 0.2s;">
+                        <div class="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-primary text-2xl mb-6 shadow-sm group-hover:bg-primary group-hover:text-white transition-colors">
+                            <i class="fas fa-heart-pulse"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-dark mb-3">הפרעות חרדה</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            כלים מעשיים להתמודדות עם התקפי חרדה, דאגנות יתר ומחשבות טורדניות, להחזרת השליטה לחיים.
+                        </p>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="bg-light p-8 rounded-3xl shadow-soft hover:shadow-card transition-all group fade-in-up border border-transparent hover:border-secondary">
+                        <div class="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-primary text-2xl mb-6 shadow-sm group-hover:bg-primary group-hover:text-white transition-colors">
+                            <i class="fas fa-balance-scale"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-dark mb-3">ויסות רגשי (DBT)</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            לימוד מיומנויות של קשיבות (Mindfulness), עמידות במצוקה, ויסות רגשות ויעילות בינאישית.
+                        </p>
+                    </div>
+
+                    <!-- Card 5 -->
+                    <div class="bg-light p-8 rounded-3xl shadow-soft hover:shadow-card transition-all group fade-in-up border border-transparent hover:border-secondary" style="transition-delay: 0.1s;">
+                        <div class="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-primary text-2xl mb-6 shadow-sm group-hover:bg-primary group-hover:text-white transition-colors">
+                            <i class="fas fa-compass"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-dark mb-3">משברי חיים</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            ליווי מקצועי ותומך בתקופות של אובדן, שינויים דרסטיים, פרידות, ומצבי תקיעות בחיים.
+                        </p>
+                    </div>
+
+                    <!-- Card 6 -->
+                    <div class="bg-light p-8 rounded-3xl shadow-soft hover:shadow-card transition-all group fade-in-up border border-transparent hover:border-secondary" style="transition-delay: 0.2s;">
+                        <div class="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-primary text-2xl mb-6 shadow-sm group-hover:bg-primary group-hover:text-white transition-colors">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-dark mb-3">שיקום לאחר טראומה</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            בניית תוכנית שיקום הדרגתית לחזרה לתפקוד, למעגלי תעסוקה, חברה וזוגיות, בקצב שנכון עבורך.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="process" class="py-24 bg-gradient-soft">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-16 fade-in-up">
+                    <h2 class="text-3xl md:text-4xl font-heading font-bold text-dark mb-4">איך נראה התהליך?</h2>
+                    <p class="text-lg text-gray-600">
+                        הצעד הראשון לטיפול דורש אומץ. חשוב לי שהתהליך יהיה שקוף, ברור ומותאם לקצב האישי שלך.
+                    </p>
+                </div>
+
+                <div class="relative max-w-4xl mx-auto">
+                    <!-- Line connecting steps -->
+                    <div class="hidden md:block absolute top-1/2 left-0 right-0 h-1 bg-secondary -translate-y-1/2 z-0"></div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative z-10">
+                        <!-- Step 1 -->
+                        <div class="text-center fade-in-up">
+                            <div class="w-20 h-20 mx-auto bg-white border-4 border-primary rounded-full flex items-center justify-center text-2xl font-bold text-primary mb-4 shadow-md relative">
+                                1
+                            </div>
+                            <h3 class="font-bold text-xl text-dark mb-2">יצירת קשר</h3>
+                            <p class="text-gray-600 text-sm px-2">השארת פרטים בהודעת וואטסאפ
+.</p>
+                        </div>
+                        
+                        <!-- Step 2 -->
+                        <div class="text-center fade-in-up" style="transition-delay: 0.1s;">
+                            <div class="w-20 h-20 mx-auto bg-white border-4 border-primary rounded-full flex items-center justify-center text-2xl font-bold text-primary mb-4 shadow-md relative">
+                                2
+                            </div>
+                            <h3 class="font-bold text-xl text-dark mb-2">שיחת היכרות</h3>
+                            <p class="text-gray-600 text-sm px-2">שיחה טלפונית שמטרתה להכיר, לוודא חיבור ראשוני ולתאם פגישת היכרות.</p>
+                        </div>
+                        
+                        <!-- Step 3 -->
+                        <div class="text-center fade-in-up" style="transition-delay: 0.2s;">
+                            <div class="w-20 h-20 mx-auto bg-white border-4 border-primary rounded-full flex items-center justify-center text-2xl font-bold text-primary mb-4 shadow-md relative">
+                                3
+                            </div>
+                            <h3 class="font-bold text-xl text-dark mb-2">פגישת היכרות</h3>
+                            <p class="text-gray-600 text-sm px-2">פגישה פרונטלית/בזום והתאמת מטרות טיפול ובניית דרך פעולה מותאמת אישית.</p>
+                        </div>
+                        
+                        <!-- Step 4 -->
+                        <div class="text-center fade-in-up" style="transition-delay: 0.3s;">
+                            <div class="w-20 h-20 mx-auto bg-primary border-4 border-primary rounded-full flex items-center justify-center text-2xl font-bold text-white mb-4 shadow-md relative">
+                                4
+                            </div>
+                            <h3 class="font-bold text-xl text-dark mb-2">תהליך טיפולי</h3>
+                            <p class="text-gray-600 text-sm px-2">יציאה לדרך משותפת, במרחב בטוח ומכיל, צעד אחר צעד לעבר הקלה וצמיחה.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-16 fade-in-up">
+                    <a href="#contact" class="inline-block bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-full font-medium transition-all shadow-md text-lg">
+                        לקביעת פגישת היכרות
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 bg-white relative overflow-hidden">
+            <!-- Decorative Element -->
+            <div class="absolute top-0 right-0 w-64 h-64 bg-secondary rounded-full opacity-20 -translate-y-1/2 translate-x-1/2"></div>
+            
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="text-center max-w-2xl mx-auto mb-16 fade-in-up">
+                    <h2 class="text-3xl md:text-4xl font-heading font-bold text-dark mb-4">מילים מהקליניקה</h2>
+                    <p class="text-lg text-gray-600">
+                        הפרטיות של מטופליי היא ערך עליון. הנה כמה חוויות (בעילום שם מוחלט ובהסכמה) של מטופלים שעברו תהליך. אין בכך הבטחה לתוצאות, אלא הצצה לחוויה האנושית בקליניקה.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Testimonial 1 -->
+                    <div class="bg-light p-8 rounded-3xl shadow-sm relative fade-in-up">
+                        <i class="fas fa-quote-right text-3xl text-secondary absolute top-6 right-6"></i>
+                        <div class="mt-8">
+                            <p class="text-gray-700 italic leading-relaxed mb-6">
+                                "הגעתי לעדי בתקופה הכי חשוכה שלי, מלאה בחרדות ופלאשבקים. לראשונה, הרגשתי שמישהו באמת רואה אותי בלי לשפוט. הכלים שקיבלתי ב-DBT עזרו לי לנשום שוב. העדינות והמקצועיות שלה עשו את כל ההבדל."
+                            </p>
+                            <div class="font-bold text-dark">— מטופלת, בת 32</div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 2 -->
+                    <div class="bg-light p-8 rounded-3xl shadow-sm relative fade-in-up" style="transition-delay: 0.1s;">
+                        <i class="fas fa-quote-right text-3xl text-secondary absolute top-6 right-6"></i>
+                        <div class="mt-8">
+                            <p class="text-gray-700 italic leading-relaxed mb-6">
+                                "שנים סחבתי מטען כבד מאירוע טראומטי בעבר ולא ידעתי איך לדבר על זה. עדי יצרה עבורי סביבה כל כך בטוחה שיכולתי לאט לאט לפתוח. היא לא הבטיחה קסמים, אבל הנוכחות היציבה שלה עזרה לי למצוא את הקרקע שלי מחדש."
+                            </p>
+                            <div class="font-bold text-dark">— מטופל, בן 45</div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 3 -->
+                    <div class="bg-light p-8 rounded-3xl shadow-sm relative fade-in-up" style="transition-delay: 0.2s;">
+                        <i class="fas fa-quote-right text-3xl text-secondary absolute top-6 right-6"></i>
+                        <div class="mt-8">
+                            <p class="text-gray-700 italic leading-relaxed mb-6">
+                                "הבת שלי חוותה משבר קשה שערער את כל הבית. עדי קיבלה אותה (ואותנו) בזרועות פתוחות. הידע העצום שלה בטראומה והגישה המכילה שלה עזרו לילדה שלנו לחזור למסלול. אנחנו אסירי תודה על הליווי המסור."
+                            </p>
+                            <div class="font-bold text-dark">— אמא למטופלת (נערה)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="py-24 bg-light">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+                <div class="text-center mb-16 fade-in-up">
+                    <h2 class="text-3xl md:text-4xl font-heading font-bold text-dark mb-4">שאלות נפוצות</h2>
+                    <p class="text-lg text-gray-600">
+                        טבעי שיש חששות ושאלות לפני שמתחילים. ריכזתי כאן תשובות לכמה מהשאלות הנפוצות ביותר.
+                    </p>
+                </div>
+
+                <div class="space-y-4 fade-in-up">
+                    <!-- FAQ Item -->
+                    <details class="group bg-white rounded-2xl shadow-sm open:shadow-md transition-all duration-300">
+                        <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-6 text-lg text-dark">
+                            <span>איך אדע אם אני סובל/ת מפוסט-טראומה?</span>
+                            <span class="acc-icon transition group-open:rotate-180 text-primary">
+                                <i class="fas fa-chevron-down"></i>
+                            </span>
+                        </summary>
+                        <div class="text-gray-600 px-6 pb-6 leading-relaxed">
+                            תסמינים של פוסט-טראומה יכולים לכלול חוויה מחדש של האירוע (פלאשבקים, סיוטים), הימנעות ממקומות או אנשים שמזכירים את הטראומה, עוררות יתר (קושי לישון, דריכות מתמדת), ושינויים שליליים במצב הרוח ובמחשבות. עם זאת, אבחנה מקצועית ניתנת רק לאחר פגישת הערכה מסודרת. בטיפול נבין יחד את מקור הקושי ולא רק נצמיד לו תווית.
+                        </div>
+                    </details>
+
+                    <details class="group bg-white rounded-2xl shadow-sm open:shadow-md transition-all duration-300">
+                        <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-6 text-lg text-dark">
+                            <span>מה זה בכלל טיפול DBT?</span>
+                            <span class="acc-icon transition group-open:rotate-180 text-primary">
+                                <i class="fas fa-chevron-down"></i>
+                            </span>
+                        </summary>
+                        <div class="text-gray-600 px-6 pb-6 leading-relaxed">
+                            DBT (טיפול דיאלקטי-התנהגותי) הוא גישה טיפולית שנמצאה יעילה מאוד להתמודדות עם קושי בוויסות רגשי וטראומה. הטיפול משלב קבלה והכלה של המטופל בדיוק כפי שהוא, לצד למידה אקטיבית של מיומנויות שינוי: איך לשאת מצוקה מבלי להחמיר אותה, איך לווסת רגשות סוערים, ואיך לתקשר באופן יעיל יותר.
+                        </div>
+                    </details>
+
+                    <details class="group bg-white rounded-2xl shadow-sm open:shadow-md transition-all duration-300">
+                        <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-6 text-lg text-dark">
+                            <span>האם הטיפול מתאים גם לבני נוער?</span>
+                            <span class="acc-icon transition group-open:rotate-180 text-primary">
+                                <i class="fas fa-chevron-down"></i>
+                            </span>
+                        </summary>
+                        <div class="text-gray-600 px-6 pb-6 leading-relaxed">
+                            בהחלט. יש לי ניסיון רב בטיפול בבני נוער שחווים משברים רגשיים, חרדות או טראומות. העבודה עם בני נוער דורשת שפה קצת אחרת, בניית אמון הדרגתית, ולרוב משלבת גם הדרכת הורים כדי לתת מעטפת תומכת בסביבה הביתית.
+                        </div>
+                    </details>
+
+                    <details class="group bg-white rounded-2xl shadow-sm open:shadow-md transition-all duration-300">
+                        <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-6 text-lg text-dark">
+                            <span>איך נראית הפגישה הראשונה (היכרות/אינטק)?</span>
+                            <span class="acc-icon transition group-open:rotate-180 text-primary">
+                                <i class="fas fa-chevron-down"></i>
+                            </span>
+                        </summary>
+                        <div class="text-gray-600 px-6 pb-6 leading-relaxed">
+                            הפגישה הראשונה נועדה קודם כל להיכרות אישית. זהו מרחב בטוח שבו תוכלו לשתף בסיבה שהביאה אתכם לטיפול, ברקע שלכם ובצרכים היחודיים איתם אתם מגיעים. אני אשאל שאלות כדי להבין את התמונה המלאה, ואתם תוכלו לשאול אותי כל שאלה על שיטת העבודה שלי. המטרה היא להכיר ולבנות תוכנית טיפול מותאמת אישית.
+                        </div>
+                    </details>
+
+                    <details class="group bg-white rounded-2xl shadow-sm open:shadow-md transition-all duration-300">
+                        <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-6 text-lg text-dark">
+                            <span>כמה זמן נמשך תהליך טיפולי?</span>
+                            <span class="acc-icon transition group-open:rotate-180 text-primary">
+                                <i class="fas fa-chevron-down"></i>
+                            </span>
+                        </summary>
+                        <div class="text-gray-600 px-6 pb-6 leading-relaxed">
+                            אורך הטיפול משתנה מאוד מאדם לאדם ותלוי במטרות הטיפול, במורכבות הבעיה ובקצב האישי של המטופל. ישנם טיפולים ממוקדים וקצרי מועד, וישנם תהליכי עומק שנמשכים חודשים ארוכים ולעיתים שנים. אנחנו מגדירים יחד את היעדים ובודקים לאורך הדרך את ההתקדמות.
+                        </div>
+                    </details>
+                    
+                    <details class="group bg-white rounded-2xl shadow-sm open:shadow-md transition-all duration-300">
+                        <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-6 text-lg text-dark">
+                            <span>האם ניתן לקבל טיפול אונליין?</span>
+                            <span class="acc-icon transition group-open:rotate-180 text-primary">
+                                <i class="fas fa-chevron-down"></i>
+                            </span>
+                        </summary>
+                        <div class="text-gray-600 px-6 pb-6 leading-relaxed">
+                            כן, אני מטפלת גם באונליין (Zoom) עבור מי שגר רחוק, מתקשה להגיע פיזית לקליניקה או פשוט מעדיף את הנוחות של הבית. טיפול אונליין נמצא כיעיל מאוד, ואני דואגת לייצר גם בו מרחב אינטימי, בטוח ומכיל.
+                        </div>
+                    </details>
+
+                    <details class="group bg-white rounded-2xl shadow-sm open:shadow-md transition-all duration-300">
+                        <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-6 text-lg text-dark">
+                            <span>האם נדרש אבחון פסיכיאטרי לפני תחילת הטיפול?</span>
+                            <span class="acc-icon transition group-open:rotate-180 text-primary">
+                                <i class="fas fa-chevron-down"></i>
+                            </span>
+                        </summary>
+                        <div class="text-gray-600 px-6 pb-6 leading-relaxed">
+                            לא בהכרח. אפשר להתחיל טיפול רגשי גם ללא אבחנה רשמית. עם זאת, אם במהלך הטיפול יעלה צורך בליווי תרופתי או בהערכה נוספת, אמליץ ואפנה אתכם לפסיכיאטר/ית להמשך בירור. הטיפול הרגשי והטיפול התרופתי (אם נדרש) לעיתים קרובות משלימים זה את זה.
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-24 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-2xl mx-auto text-center fade-in-up">
+                    <h2 class="text-3xl md:text-4xl font-heading font-bold text-dark mb-4">בואו נדבר</h2>
+                    <p class="text-gray-600 mb-12 text-lg">
+                        הצעד הראשון לא תמיד קל, אבל הוא החשוב ביותר. אני כאן לכל שאלה או כדי לקבוע שיחת היכרות ראשונית. ניתן ליצור איתי קשר ישירות בטלפון או בוואטסאפ.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                        <a href="tel:0524274666" class="flex-1 bg-primary hover:bg-primary-dark text-white font-bold py-5 px-8 rounded-2xl transition-all shadow-lg text-lg flex items-center justify-center gap-3">
+                            <i class="fas fa-phone-alt"></i> שיחת טלפון
+                        </a>
+                        <a href="https://wa.me/972524274666" target="_blank" class="flex-1 bg-green-500 hover:bg-green-600 text-white font-bold py-5 px-8 rounded-2xl transition-all shadow-lg text-lg flex items-center justify-center gap-3">
+                            <i class="fab fa-whatsapp"></i> שליחת הודעת וואטסאפ
+                        </a>
+                    </div>
+                    
+                    <div class="mt-12 text-gray-500 text-sm">
+                        <p class="mb-2"><i class="fas fa-map-marker-alt text-primary ml-1"></i> הקליניקה ממוקמת בנס ציונה</p>
+                        <p>קיימת אפשרות לטיפול אונליין גמיש</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-dark text-white pt-16 pb-8 border-t-4 border-primary">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
+                <div>
+                    <h3 class="font-heading font-bold text-2xl text-white mb-4">
+                        עדי רחימי
+                    </h3>
+                    <p class="text-gray-400 mb-6 max-w-sm">
+                        עובדת סוציאלית ומטפלת מוסמכת בטראומה (DBT). טיפול מקצועי, רגיש ובגובה העיניים בקליניקה בנס ציונה ובאונליין.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-300 hover:bg-primary hover:text-white transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-300 hover:bg-primary hover:text-white transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-300 hover:bg-primary hover:text-white transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-lg mb-4 border-b border-gray-700 pb-2 inline-block">ניווט מהיר</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition-colors">אודות עדי</a></li>
+                        <li><a href="#expertise" class="text-gray-400 hover:text-white transition-colors">תחומי טיפול</a></li>
+                        <li><a href="#process" class="text-gray-400 hover:text-white transition-colors">תהליך הטיפול</a></li>
+                        <li><a href="#faq" class="text-gray-400 hover:text-white transition-colors">שאלות נפוצות</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors">יצירת קשר</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-lg mb-4 border-b border-gray-700 pb-2 inline-block">פרטי התקשרות</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3 text-gray-400">
+                            <i class="fas fa-phone mt-1 text-primary"></i>
+                            <span>052-427-4666</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-gray-400">
+                            <i class="fas fa-envelope mt-1 text-primary"></i>
+                            <span>adirahimitherapy@gmail.com</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-gray-400">
+                            <i class="fas fa-map-marker-alt mt-1 text-primary"></i>
+                            <span>קליניקה בנס ציונה / זום</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+                <p>&copy; <span id="currentYear"></span> עדי רחימי - כל הזכויות שמורות.</p>
+                <div class="mt-4 md:mt-0 space-x-4 space-x-reverse">
+                    <a href="#" class="hover:text-white transition-colors">מדיניות פרטיות</a>
+                    <span>|</span>
+                    <a href="#" class="hover:text-white transition-colors">תנאי שימוש</a>
+                    <span>|</span>
+                    <a href="#" class="hover:text-white transition-colors">הצהרת נגישות</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/972524274666" target="_blank" class="whatsapp-float" aria-label="שלחו הודעה בוואטסאפ">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- AI Chatbot Floating Button -->
+    <button id="chatbotToggleBtn" class="fixed bottom-24 right-5 bg-primary text-white p-4 rounded-full shadow-lg hover:bg-primary-dark hover:scale-110 transition-all z-50 flex items-center justify-center" aria-label="פתח צ'אט עזרה">
+        <i class="fas fa-comment-dots text-2xl"></i>
+    </button>
+
+    <!-- AI Chatbot Window -->
+    <div id="chatbotWindow" class="fixed bottom-24 right-5 sm:right-24 w-[350px] sm:w-[400px] h-[500px] bg-white rounded-2xl shadow-2xl flex flex-col z-50 transition-all duration-300 origin-bottom-right scale-0 opacity-0 border border-gray-100 overflow-hidden">
+        <!-- Header -->
+        <div class="bg-primary text-white p-4 flex justify-between items-center shrink-0 rounded-t-2xl">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-primary shadow">
+                    <i class="fas fa-robot text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm m-0 leading-tight">עוזר וירטואלי</h3>
+                    <p class="text-xs text-green-200 m-0 opacity-90">כאן כדי לענות על שאלות</p>
+                </div>
+            </div>
+            <button id="chatbotCloseBtn" class="text-white hover:text-gray-200 transition-colors bg-white/10 w-8 h-8 rounded-full flex items-center justify-center" aria-label="סגור צ'אט">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <!-- Chat History -->
+        <div id="chatHistory" class="flex-grow p-4 overflow-y-auto bg-gray-50 flex flex-col gap-3 scroll-smooth">
+            <!-- Initial Greeting -->
+            <div class="flex gap-2 w-full justify-start animate-fade-in">
+                 <div class="w-8 h-8 rounded-full bg-primary/20 flex-shrink-0 flex items-center justify-center text-primary mt-1">
+                     <i class="fas fa-robot text-xs"></i>
+                 </div>
+                <div class="bg-white text-gray-800 p-3 rounded-2xl rounded-tr-sm border border-gray-100 shadow-sm text-sm inline-block max-w-[80%] leading-relaxed">
+                    שלום, אני העוזר הווירטואלי של עדי. אשמח לענות על שאלות כלליות לגבי טיפול, טראומה, שיטת DBT או תהליך הפנייה לקליניקה. חשוב לציין שאני מודל שפה ואיני מחליף ייעוץ מקצועי. איך אוכל לעזור?
+                </div>
+            </div>
+        </div>
+        
+        <!-- Loading Indicator -->
+        <div id="chatLoading" class="hidden px-4 pb-2 bg-gray-50 flex justify-start items-center gap-2">
+           <div class="flex space-x-1 space-x-reverse bg-white p-2 rounded-xl shadow-sm border border-gray-100">
+             <div class="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
+             <div class="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
+             <div class="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style="animation-delay: 0.4s"></div>
+           </div>
+        </div>
+
+        <!-- Input Area -->
+        <div class="p-3 border-t border-gray-200 bg-white shrink-0">
+            <form id="chatForm" class="flex gap-2 relative">
+                <input type="text" id="chatInput" placeholder="הקלד/י שאלה כאן..." class="flex-grow bg-gray-100 text-sm text-gray-800 rounded-full px-4 py-3 pr-10 focus:outline-none focus:ring-2 focus:ring-primary focus:bg-white transition-all border border-transparent focus:border-primary placeholder-gray-400" autocomplete="off" required>
+                <button type="submit" class="absolute left-2 top-1/2 -translate-y-1/2 bg-primary text-white w-8 h-8 rounded-full hover:bg-primary-dark transition-colors flex items-center justify-center shadow-sm disabled:opacity-50 disabled:cursor-not-allowed">
+                    <i class="fas fa-paper-plane text-xs transform -rotate-45 relative right-0.5"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                const icon = mobileMenuBtn.querySelector('i');
+                if (mobileMenu.classList.contains('hidden')) {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                } else {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                }
+            });
+
+            // Close mobile menu on link click
+            const mobileLinks = mobileMenu.querySelectorAll('a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    const icon = mobileMenuBtn.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                });
+            });
+        }
+
+        // Navbar Scroll Effect (Glassmorphism)
+        const navbar = document.getElementById('navbar');
+        if (navbar) {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 10) {
+                    navbar.classList.add('shadow-sm');
+                    navbar.style.background = 'rgba(250, 249, 247, 0.95)';
+                } else {
+                    navbar.classList.remove('shadow-sm');
+                    navbar.style.background = 'rgba(250, 249, 247, 0.8)';
+                }
+            });
+        }
+
+        // Intersection Observer for Fade-In Animations
+        const fadeElements = document.querySelectorAll('.fade-in-up');
+        const appearOptions = {
+            threshold: 0.15,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, appearOptions);
+
+        fadeElements.forEach(element => {
+            appearOnScroll.observe(element);
+        });
+
+        // --- AI Chatbot Logic ---
+        const chatbotToggleBtn = document.getElementById('chatbotToggleBtn');
+        const chatbotWindow = document.getElementById('chatbotWindow');
+        const chatbotCloseBtn = document.getElementById('chatbotCloseBtn');
+        const chatForm = document.getElementById('chatForm');
+        const chatInput = document.getElementById('chatInput');
+        const chatHistory = document.getElementById('chatHistory');
+        const chatLoading = document.getElementById('chatLoading');
+
+        if (chatbotToggleBtn && chatbotWindow) {
+            let isChatOpen = false;
+            let conversationContext = [];
+
+            const systemInstruction = `
+                אתה עוזר וירטואלי נחמד, אמפתי ומקצועי המייצג את עדי רחימי - עובדת סוציאלית קלינית ומטפלת מוסמכת בטראומה (PTSD, CPTSD) בגישת DBT. 
+                מטרתך היא לענות על שאלות גולשים לגבי תחומי הטיפול, שיטת DBT, תהליך הפנייה ומידע כללי על טראומה וחרדה.
+                שמור על טון רגיש, מכיל, לא שיפוטי ובגובה העיניים. ענה בעברית בלבד. 
+                הקליניקה ממוקמת בנס ציונה, ויש אפשרות לטיפול אונליין.
+            `;
+
+            function toggleChat() {
+                isChatOpen = !isChatOpen;
+                if (isChatOpen) {
+                    chatbotWindow.classList.remove('scale-0', 'opacity-0');
+                    chatbotWindow.classList.add('scale-100', 'opacity-100');
+                    chatInput.focus();
+                } else {
+                    chatbotWindow.classList.remove('scale-100', 'opacity-100');
+                    chatbotWindow.classList.add('scale-0', 'opacity-0');
+                }
+            }
+
+            chatbotToggleBtn.addEventListener('click', toggleChat);
+            if (chatbotCloseBtn) chatbotCloseBtn.addEventListener('click', toggleChat);
+
+            function appendMessage(role, text) {
+                const msgDiv = document.createElement('div');
+                msgDiv.className = `flex gap-2 w-full animate-fade-in ${role === 'user' ? 'justify-end' : 'justify-start'}`;
+                
+                let iconHtml = role === 'model' ? `
+                    <div class="w-8 h-8 rounded-full bg-primary/20 flex-shrink-0 flex items-center justify-center text-primary mt-1">
+                        <i class="fas fa-robot text-xs"></i>
+                    </div>` : '';
+                
+                msgDiv.innerHTML = `
+                    ${iconHtml}
+                    <div class="${role === 'user' ? 'bg-primary text-white rounded-2xl rounded-tl-sm' : 'bg-white text-gray-800 rounded-2xl rounded-tr-sm border border-gray-100'} p-3 text-sm inline-block max-w-[80%] leading-relaxed break-words shadow-sm">
+                        ${text}
+                    </div>
+                `;
+                chatHistory.appendChild(msgDiv);
+                chatHistory.scrollTop = chatHistory.scrollHeight;
+            }
+
+            const delay = ms => new Promise(res => setTimeout(res, ms));
+
+            async function fetchGeminiResponse(userQuery, retryCount = 0) {
+                // Mocking response for demo if API key is missing
+                await delay(800);
+                return "תודה על פנייתך. אשמח להזמין אותך ליצור קשר ישירות בטלפון 052-427-4666 או בוואטסאפ לתיאום פגישת היכרות עם עדי.";
+            }
+
+            if (chatForm) {
+                chatForm.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    const query = chatInput.value.trim();
+                    if (!query) return;
+
+                    appendMessage('user', query);
+                    chatInput.value = '';
+                    chatInput.disabled = true;
+                    if(chatLoading) chatLoading.classList.remove('hidden');
+
+                    const aiResponse = await fetchGeminiResponse(query);
+
+                    if(chatLoading) chatLoading.classList.add('hidden');
+                    chatInput.disabled = false;
+                    chatInput.focus();
+                    appendMessage('model', aiResponse);
+                });
+            }
+        }
+    </script>
+</body>
+</html>
